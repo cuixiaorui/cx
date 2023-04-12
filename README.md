@@ -1,5 +1,5 @@
 # cx
-retro zxjs
+retro [zxjs](https://github.com/google/zx)
 
 ## 实现的功能
 - [x] 全局可调用
