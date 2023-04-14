@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { resolve } from "node:path";
 import { createRequire } from "node:module";
+import { $ } from "./core.js";
 import url from "node:url";
 
 (async () => {
@@ -11,6 +12,4 @@ import url from "node:url";
   await import(url.pathToFileURL(origin).toString());
 })();
 
-function $(command: string) {
-  console.log("command: ", command);
-}
+Object.assign(global, { $ });

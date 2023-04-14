@@ -10,6 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 import { resolve } from "node:path";
 import { createRequire } from "node:module";
+import { $ } from "./core.js";
 import url from "node:url";
 (() => __awaiter(void 0, void 0, void 0, function* () {
     const helloFilePath = "./hello.mjs";
@@ -18,6 +19,4 @@ import url from "node:url";
     Object.assign(global, { require });
     yield import(url.pathToFileURL(origin).toString());
 }))();
-function $(command) {
-    console.log("command: ", command);
-}
+Object.assign(global, { $ });

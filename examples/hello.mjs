@@ -1,2 +1,2 @@
 #!/usr/bin/env cx
-$`cat package.json`
+$`cat ../package.json`
