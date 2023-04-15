@@ -1,8 +1,9 @@
 #!/usr/bin/env node
+
 import { resolve } from "node:path";
 import { createRequire } from "node:module";
-import { $ } from "./core.js";
 import url from "node:url";
+import "./globals.js";
 
 (async () => {
   const helloFilePath = "./hello.mjs";
@@ -11,5 +12,3 @@ import url from "node:url";
   Object.assign(global, { require });
   await import(url.pathToFileURL(origin).toString());
 })();
-
-Object.assign(global, { $ });

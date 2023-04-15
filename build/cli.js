@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -10,8 +9,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 import { resolve } from "node:path";
 import { createRequire } from "node:module";
-import { $ } from "./core.js";
 import url from "node:url";
+import "./globals.js";
 (() => __awaiter(void 0, void 0, void 0, function* () {
     const helloFilePath = "./hello.mjs";
     const origin = resolve(helloFilePath);
@@ -19,4 +18,3 @@ import url from "node:url";
     Object.assign(global, { require });
     yield import(url.pathToFileURL(origin).toString());
 }))();
-Object.assign(global, { $ });
