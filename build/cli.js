@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -11,10 +12,14 @@ import { resolve } from "node:path";
 import { createRequire } from "node:module";
 import url from "node:url";
 import "./globals.js";
-(() => __awaiter(void 0, void 0, void 0, function* () {
+await (() => __awaiter(void 0, void 0, void 0, function* () {
+    // await import("./globals.js");
     const helloFilePath = "./hello.mjs";
     const origin = resolve(helloFilePath);
     const require = createRequire(origin);
     Object.assign(global, { require });
     yield import(url.pathToFileURL(origin).toString());
-}))();
+}))().catch((processOutput) => {
+    console.error(processOutput.message);
+    process.exitCode = 1;
+});
